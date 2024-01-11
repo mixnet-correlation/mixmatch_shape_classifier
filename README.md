@@ -62,8 +62,8 @@ root@ubuntu2204(mixmatch) $   tree
 
 Exemplarily for dataset `baseline`, we go through the steps parsing, training, evaluating, and score calculating that make up the process of analyzing a dataset with this classifier. Follow similar steps for the remaining datasets.
 ```bash
+root@ubuntu2204(base) $   tmux
 root@ubuntu2204(base) $   conda activate mixmatch
-root@ubuntu2204(mixmatch) $   tmux
 root@ubuntu2204(mixmatch) $   cd ~/mixmatch/mixmatch_shape_classifier
 root@ubuntu2204(mixmatch) $   python parse.py ../datasets/baseline --experiment 1
 ... Takes at least 20min to complete ...
@@ -73,8 +73,8 @@ root@ubuntu2204(mixmatch) $   python parse.py ../datasets/baseline --experiment 
 ## Train on Parsed Dataset
 
 ```bash
+root@ubuntu2204(base) $   tmux
 root@ubuntu2204(base) $   conda activate mixmatch
-root@ubuntu2204(mixmatch) $   tmux
 root@ubuntu2204(mixmatch) $   cd ~/mixmatch/mixmatch_shape_classifier
 root@ubuntu2204(mixmatch) $   TF_CPP_MIN_LOG_LEVEL=3 TF_DETERMINISTIC_OPS=1 PYTHONHASHSEED=0 python train.py
 ... Takes on the order of many hours complete ...
@@ -90,8 +90,8 @@ root@ubuntu2204(mixmatch) $   ls -lahtr ./results/latest/
 ## Evaluate a Trained Model
 
 ```bash
+root@ubuntu2204(base) $   tmux
 root@ubuntu2204(base) $   conda activate mixmatch
-root@ubuntu2204(mixmatch) $   tmux
 root@ubuntu2204(mixmatch) $   cd ~/mixmatch/mixmatch_shape_classifier
 root@ubuntu2204(mixmatch) $   TF_CPP_MIN_LOG_LEVEL=3 TF_DETERMINISTIC_OPS=1 PYTHONHASHSEED=0 python get_scores.py ./data/latest/ ./results/latest/
 ... Takes on the order of some hours to complete ...
@@ -101,8 +101,8 @@ root@ubuntu2204(mixmatch) $   TF_CPP_MIN_LOG_LEVEL=3 TF_DETERMINISTIC_OPS=1 PYTH
 ## Calculate ROC Scores
 
 ```bash
+root@ubuntu2204(base) $   tmux
 root@ubuntu2204(base) $   conda activate mixmatch
-root@ubuntu2204(mixmatch) $   tmux
 root@ubuntu2204(mixmatch) $   cd ~/mixmatch/mixmatch_shape_classifier
 root@ubuntu2204(mixmatch) $   TF_CPP_MIN_LOG_LEVEL=3 TF_DETERMINISTIC_OPS=1 PYTHONHASHSEED=0 python calculate_roc.py ./results/latest/
 ... Takes on the order of 1 hour to complete ...
